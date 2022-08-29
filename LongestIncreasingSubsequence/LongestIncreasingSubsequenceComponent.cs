@@ -10,14 +10,26 @@ namespace LongestIncreasingSubsequence
         {
             if (inputString == "")
                 throw new ArgumentNullException("message","Please Enter Valid String of Integers seperated by single space");
-
-            stringBuilder = FindTheLongestIncreasingSubarray(inputString);
-
+            if (inputString.All(char.IsDigit))
+                throw new FormatException();
+            try
+            {
+                stringBuilder = FindTheLongestIncreasingSubarray(inputString);
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return stringBuilder.ToString();
         }
 
-        private StringBuilder FindTheLongestIncreasingSubarray(string inputStr)
+        public StringBuilder FindTheLongestIncreasingSubarray(string inputStr)
         {
+            if (inputStr == "")
+                throw new ArgumentNullException("message", "Please Enter Valid String of Integers seperated by single space");
+           
+            if (inputStr.All(char.IsDigit))
+                throw new FormatException();
 
             int[] inputArray = Array.ConvertAll(inputStr.Split(" "), s => int.Parse(s));
 
