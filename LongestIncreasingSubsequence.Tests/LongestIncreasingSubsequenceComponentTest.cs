@@ -169,5 +169,17 @@ namespace LongestIncreasingSubsequence.Tests
 
         }
 
+        [Fact]
+        public void TestCase11()
+        {
+            string inputString = "6 2 4 3 1 5 9";
+
+            string result = _sut.GetEarliestLongestIncreasingSubsequence(inputString);
+
+            result.Should().NotBeEmpty();
+            result.Should().Be("1 5 9");
+
+        }
+
     }
 }
