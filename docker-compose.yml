@@ -10,14 +10,14 @@ services:
     container_name: longestincreasingsubsequence
     image: mcr.microsoft.com/dotnet/sdk:6.0
     volumes:
-      - .:/LongestIncreasingSubsequence
-      - ../LongestIncreasingSubsequence.Tests:/longestincreasingsubsequencetest
+      - ./LongestIncreasingSubsequence:/LongestIncreasingSubsequence
+      - ./LongestIncreasingSubsequence.Tests:/LongestIncreasingSubsequence.Tests
     working_dir: /LongestIncreasingSubsequence
     command:
       [
         "dotnet",
         "test",
-        "../LongestIncreasingSubsequence.Tests/LongestIncreasingSubsequence.Tests.csproj"
+        "LongestIncreasingSubsequence.Tests/LongestIncreasingSubsequence.Tests.csproj"
       ]
     depends_on:
       - longestincreasingsubsequence
