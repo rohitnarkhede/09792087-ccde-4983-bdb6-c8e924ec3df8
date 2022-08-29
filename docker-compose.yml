@@ -6,3 +6,18 @@ services:
     build:
       context: .
       dockerfile: LongestIncreasingSubsequence/Dockerfile
+  tests:
+    container_name: longestincreasingsubsequence
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    volumes:
+      - .:/LongestIncreasingSubsequence
+      - ../LongestIncreasingSubsequence.Tests:/longestincreasingsubsequencetest
+    working_dir: /LongestIncreasingSubsequence
+    command:
+      [
+        "dotnet",
+        "test",
+        "../LongestIncreasingSubsequence.Tests/LongestIncreasingSubsequence.Tests.csproj"
+      ]
+    depends_on:
+      - longestincreasingsubsequence
