@@ -156,5 +156,18 @@ namespace LongestIncreasingSubsequence.Tests
             result.Should().Be("918 1089 5133 7725 18035 24605 26716 27095");
 
         }
+
+        [Fact]
+        public void TestCase10()
+        {
+            string inputString = "6 2 4 6 1 5 9 2";
+
+            string result = _sut.GetEarliestLongestIncreasingSubsequence(inputString);
+
+            result.Should().NotBeEmpty();
+            result.Should().Be("2 4 6");
+
+        }
+
     }
 }
